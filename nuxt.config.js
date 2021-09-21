@@ -3,7 +3,17 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-
+  srcDir: 'src/',
+  dir: {
+    pages: 'ui/pages',
+    components: 'ui/core/components',
+    plugins: 'ui/core/plugins',
+    assets: 'ui/core/assets',
+    layouts: 'ui/core/layouts',
+    middleware: 'ui/core/middleware',
+    static: 'ui/core/static',
+    store: 'ui/store',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - netflix_nuxt',
