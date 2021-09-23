@@ -3,11 +3,21 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-
+  srcDir: 'src/',
+  dir: {
+    pages: 'ui/pages',
+    components: 'ui/core/components',
+    plugins: 'ui/core/plugins',
+    assets: 'ui/core/assets',
+    layouts: 'ui/core/layouts',
+    middleware: 'ui/core/middleware',
+    static: 'ui/core/static',
+    store: 'ui/store',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - netflix_nuxt',
-    title: 'netflix_nuxt',
+    titleTemplate: 'Início - Netflix',
+    title: 'Início - Netflix',
     htmlAttrs: {
       lang: 'en'
     },
@@ -18,7 +28,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Netflix-new-icon.png' }
     ]
   },
 
@@ -49,7 +59,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
