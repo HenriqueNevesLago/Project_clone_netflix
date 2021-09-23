@@ -1,6 +1,6 @@
 # Netflix Clone Project 
-Based on knowledge of Vue and Nuxt frameworks. This project was created by me, Henrique Neves, for studies. :)
-
+#### Based on knowledge of Vue and Nuxt frameworks. This project was created by me, Henrique Neves, for studies. :)
+##### The default page of this project was modified for more organization. This configuration can be watch on file "nuxt.config.js"
 ## Build Setup
 
 ```bash
