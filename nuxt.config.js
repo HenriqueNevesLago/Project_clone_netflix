@@ -16,8 +16,8 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - netflix_nuxt',
-    title: 'netflix_nuxt',
+    titleTemplate: 'Início - Netflix',
+    title: 'Início - Netflix',
     htmlAttrs: {
       lang: 'en'
     },
@@ -28,7 +28,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Netflix-new-icon.png' }
     ]
   },
 

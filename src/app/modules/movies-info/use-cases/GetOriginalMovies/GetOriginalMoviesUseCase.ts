@@ -1,12 +1,12 @@
 import { IMoviesService } from './../../services/MoviesService';
-import { GetPopularMoviesDTO } from './GetPopularMoviesDTO';
+import { GetOriginalMoviesDTO } from './GetOriginalMoviesDTO';
 import { UseCase } from '@/app/core/base/UseCase';
 import { Result } from '@/app/core/base/Result';
 import { left, right } from '@/app/core/base/Either';
 import { AppError } from '@/app/core/base/AppError';
 
-export class GetPopularMoviesUseCase
-  implements UseCase<null, GetPopularMoviesDTO.Response>
+export class GetOriginalMoviesUseCase
+  implements UseCase<null, GetOriginalMoviesDTO.Response>
 {
   private movieService: IMoviesService;
 
@@ -14,9 +14,9 @@ export class GetPopularMoviesUseCase
     this.movieService = movieService;
   }
 
-  public async execute(): Promise<GetPopularMoviesDTO.Response> {
+  public async execute(): Promise<GetOriginalMoviesDTO.Response> {
     try {
-      const res = await this.movieService.getPopularMovies()
+      const res = await this.movieService.getOriginalMovies()
       // @ts-ignore
       return right(Result.ok(res.results));
     } catch (err) {

@@ -3,7 +3,7 @@ import { getPopularMoviesUseCase } from '.';
 describe('Use Case: MoviesInfo/GetPopularMoviesUseCase', () => {
   beforeAll(() => {});
 
-  test('My first test', async () => {
+  test('Test success- GetPopularMoviesUseCase', async () => {
     const res = await getPopularMoviesUseCase.execute();
 
     expect(res.isRight()).toBe(true);

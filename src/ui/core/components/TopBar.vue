@@ -1,10 +1,10 @@
 <template>
   <v-card>
     <v-app-bar
-      class="pl-8 pr-8"
-      hide-on-scroll
+      class="pl-4 pr-8 header"
       color="rgba(0,0,0,0)"
       :v-bind="$attrs"
+      hide-on-scroll
       fixed
       flat
     >

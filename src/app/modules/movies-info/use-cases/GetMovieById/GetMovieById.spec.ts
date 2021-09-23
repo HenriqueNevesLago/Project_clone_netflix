@@ -3,7 +3,7 @@ import { getMovieByIdUseCase } from '.';
 describe('Use Case: MoviesInfo/GetMovieByIdUseCase', () => {
   beforeAll(() => {});
 
-  test('My first test', async () => {
+  test('Test success- GetMovieByIdUseCase', async () => {
     const res = await getMovieByIdUseCase.execute({
       idMovie: 512,
     }
