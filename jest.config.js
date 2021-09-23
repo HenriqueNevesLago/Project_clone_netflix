@@ -1,8 +1,8 @@
 module.exports = {
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
-    '^~/(.*)$': '<rootDir>/$1',
-    '^vue$': 'vue/dist/vue.common.js'
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^~/(.*)$': '<rootDir>/src/$1',
+    '^vue$': 'vue/dist/vue.common.js',
   },
   moduleFileExtensions: [
     'ts',
@@ -15,10 +15,11 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest'
   },
-  collectCoverage: true,
+  collectCoverage: false,
   collectCoverageFrom: [
-    '<rootDir>/components/**/*.vue',
-    '<rootDir>/pages/**/*.vue'
+    // '<rootDir>/components/**/*.vue',
+    // '<rootDir>/pages/**/*.vue',
+    '<rootDir>/src/app/modules/**/*UseCase.ts',
   ],
   testEnvironment: 'jsdom'
 }
