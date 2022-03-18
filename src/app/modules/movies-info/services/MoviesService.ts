@@ -1,41 +1,48 @@
-import { Movies } from '../models/Movies'
-import { HttpAdapter } from '@/app/core/adapter/HttpAdapter';
+import { MoviesCollection } from '../models/MoviesCollection'
+import { HttpAdapter } from '@/app/core/adapter/HttpAdapter'
 
 type Response<T> = {
-  data: T;
-};
+  data: T
+}
 
 export interface IMoviesService {
-  getMovieById(id: number): Promise<Movies>;
-  getPopularMovies(): Promise<Movies[]>;
-  getOriginalMovies(): Promise<Movies[]>;
+  getMovieById(
+    dto: MoviesCollection.GetMoviesById.Input
+  ): Promise<MoviesCollection.GetMoviesById.Output>
+  getPopularMovies(): Promise<MoviesCollection.GetMovies.Output>
+  getOriginalMovies(): Promise<MoviesCollection.GetMovies.Output>
 }
 export class MoviesService implements IMoviesService {
-  private httpAdapter: HttpAdapter;
+  private httpAdapter: HttpAdapter
 
   constructor(httpAdapter: HttpAdapter) {
-    this.httpAdapter = httpAdapter;
+    this.httpAdapter = httpAdapter
   }
 
-  async getMovieById(id: number) {
-    const url = `https://api.themoviedb.org/3/movie/${id}?language=pt-BR&api_key=8931691c8d7464b5c3d8a81a8cf94e4f`;
+  async getMovieById(
+    dto: MoviesCollection.GetMoviesById.Input
+  ): Promise<MoviesCollection.GetMoviesById.Output> {
+    const url = `https://api.themoviedb.org/3/movie/${dto}?language=pt-BR&api_key=8931691c8d7464b5c3d8a81a8cf94e4f`
 
-    const res: Response<Movies> = await this.httpAdapter.get({url});
+    const res: Response<MoviesCollection.GetMoviesById.Output> =
+      await this.httpAdapter.get({ url })
 
-    return res.data;
+    return res.data
   }
-  async getPopularMovies(): Promise<Movies[]> {
-    const url = `https://api.themoviedb.org/3/trending/all/week?language=pt-BR&api_key=8931691c8d7464b5c3d8a81a8cf94e4f`;
+  async getPopularMovies(): Promise<MoviesCollection.GetMovies.Output> {
+    const url = `https://api.themoviedb.org/3/trending/all/week?language=pt-BR&api_key=8931691c8d7464b5c3d8a81a8cf94e4f`
 
-    const res: Response<Movies[]> = await this.httpAdapter.get({url});
+    const res: Response<MoviesCollection.GetMovies.Output> =
+      await this.httpAdapter.get({ url })
 
-    return res.data;
+    return res.data
   }
-  async getOriginalMovies(): Promise<Movies[]> {
-    const url = `https://api.themoviedb.org/3/discover/tv?with_network=213&language=pt-BR&api_key=8931691c8d7464b5c3d8a81a8cf94e4f`;
+  async getOriginalMovies(): Promise<MoviesCollection.GetMovies.Output> {
+    const url = `https://api.themoviedb.org/3/discover/tv?with_network=213&language=pt-BR&api_key=8931691c8d7464b5c3d8a81a8cf94e4f`
 
-    const res: Response<Movies[]> = await this.httpAdapter.get({url});
+    const res: Response<MoviesCollection.GetMovies.Output> =
+      await this.httpAdapter.get({ url })
 
-    return res.data;
+    return res.data
   }
 }

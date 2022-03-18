@@ -1,11 +1,11 @@
 <template>
   <v-row class="colorBlack">
-    <v-col class="ml-5 d-flex align-center">
+    <v-col class="ml-5 d-flex align-center" v-if="loading.page === false">
       <v-col cols="4">
         <p class="white--text titleFilme">{{ movie.title }}</p>
         <v-col class="d-flex pa-0">
-          <h4 class="mr-6 green--text">{{ movie.voteAverage }} pontos</h4>
-          <h4 class="white--text">{{ movie.releaseDate }}</h4>
+          <h4 class="mr-6 green--text">{{ movie.vote_average }} pontos</h4>
+          <h4 class="white--text">{{ movie.release_date }}</h4>
         </v-col>
         <p class="text-left white--text">{{ movie.overview }}</p>
         <v-col class="pa-0">
@@ -32,12 +32,29 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { getMovieByIdUseCase } from '~/app/modules/movies-info/use-cases/GetMovieById'
+import { GetMovieByIdDTO } from '~/app/modules/movies-info/use-cases/GetMovieById/GetMovieByIdDTO'
 export default Vue.extend({
-  props: {
-    movie: {
-      type: Object,
-      required: false,
-      default: () => {},
+  data() {
+    return {
+      movie: undefined as GetMovieByIdDTO.ResponseProps | undefined,
+      loading: {
+        page: false,
+      },
+    }
+  },
+  async created() {
+    this.loading.page = true
+    await this.getMovieById()
+    this.loading.page = false
+  },
+  methods: {
+    async getMovieById() {
+      const res = await getMovieByIdUseCase.execute(12)
+      if (res.isLeft()) {
+        return alert('Ocorreu um erro')
+      }
+      this.movie = res.value.getValue()
     },
   },
 })

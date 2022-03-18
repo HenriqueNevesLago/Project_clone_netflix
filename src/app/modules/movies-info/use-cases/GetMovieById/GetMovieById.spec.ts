@@ -1,19 +1,16 @@
-import { getMovieByIdUseCase } from '.';
+import { getMovieByIdUseCase } from '.'
 
 describe('Use Case: MoviesInfo/GetMovieByIdUseCase', () => {
-  beforeAll(() => {});
+  beforeAll(() => {})
 
   test('Test success- GetMovieByIdUseCase', async () => {
-    const res = await getMovieByIdUseCase.execute({
-      idMovie: 512,
-    }
-  );
+    const res = await getMovieByIdUseCase.execute(512)
 
-    expect(res.isRight()).toBe(true);
-    expect(res.value.getValue()).toBeDefined();
+    expect(res.isRight()).toBe(true)
+    expect(res.value.getValue()).toBeDefined()
 
     if (res.isRight()) {
-      console.log(res.value.getValue());
+      console.log(res.value.getValue())
     }
-  });
-});
+  })
+})
